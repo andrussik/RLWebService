@@ -19,7 +19,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet("{searchString}")]
-        public async Task<IEnumerable<Book>> GetBooks(string searchString)
+        public async Task<IEnumerable<BookDTO>> GetBooks(string searchString)
         {
             return await _service.FindAsync(searchString);
         }

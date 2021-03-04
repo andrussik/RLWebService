@@ -17,7 +17,7 @@ namespace BLL.Services.App
             _repo = bookRepository;
         }
 
-        public async Task<IEnumerable<Book>> FindAsync(string searchString)
+        public async Task<IEnumerable<BookDTO>> FindAsync(string searchString)
         {
             var books = await _repo.FindAsync(searchString);
             books = BookBLL.CalculateBookOutput(books);

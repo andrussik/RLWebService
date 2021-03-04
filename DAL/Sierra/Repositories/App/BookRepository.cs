@@ -16,7 +16,7 @@ namespace DAL.Sierra.Repositories.App
         {
         }
         
-        public async Task<IEnumerable<Book>> FindAsync(string searchString)
+        public async Task<IEnumerable<BookDTO>> FindAsync(string searchString)
         {
             var urlString = "bibs/search?text=" + searchString;
             var searchResponseDTO = await _httpClient.GetFromJsonAsync<SearchResponseDTO>(urlString);

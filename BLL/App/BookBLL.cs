@@ -6,7 +6,7 @@ namespace BLL.App
 {
     public class BookBLL
     {
-        public static IEnumerable<Book> CalculateBookOutput(IEnumerable<Book> books)
+        public static IEnumerable<BookDTO> CalculateBookOutput(IEnumerable<BookDTO> books)
         {
             var calculateBookOutput = books.ToList();
             foreach (var book in calculateBookOutput)

@@ -4,10 +4,4 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="BLL" />
-      <Folder Include="DAL\Riks" />
-      <Folder Include="DAL\Urram" />
-    </ItemGroup>
-
 </Project>

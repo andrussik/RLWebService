@@ -6,6 +6,6 @@ namespace DAL.Sierra.Repositories.Contracts
 {
     public interface IBookRepository
     {
-        Task<IEnumerable<Book>> FindAsync(string searchString);
+        Task<IEnumerable<BookDTO>> FindAsync(string searchString);
     }
 }

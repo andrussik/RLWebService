@@ -6,6 +6,6 @@ namespace BLL.Services.Contracts
 {
     public interface IBookService
     {
-        Task<IEnumerable<Book>> FindAsync(string searchString);
+        Task<IEnumerable<BookDTO>> FindAsync(string searchString);
     }
 }

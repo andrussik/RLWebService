@@ -5,9 +5,9 @@ namespace DTOs.PublicApi.Mappers
 {
     public static class BookMapper
     {
-        public static Book Map(Bib bib)
+        public static BookDTO Map(Bib bib)
         {
-            var book = new Book
+            var book = new BookDTO
             {
                 Id = bib.Id,
                 Title = bib.Title,
@@ -18,9 +18,9 @@ namespace DTOs.PublicApi.Mappers
             return book;
         }
 
-        public static IEnumerable<Book> Map(IEnumerable<Bib> bibs)
+        public static IEnumerable<BookDTO> Map(IEnumerable<Bib> bibs)
         {
-            var books = new List<Book>();
+            var books = new List<BookDTO>();
             
             foreach (var bib in bibs)
             {
