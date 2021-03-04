@@ -16,8 +16,8 @@
 - BLL consists of BLL apps and services.
 - BLL apps contain static methods that are used across services to make necessary calculations.
 - Services make necessary calculations and provide output for:
-  - controllers (on data request)
-  - external sources (on data post).
+  - controllers -> client (on data request)
+  - repositories -> external sources (on data post).
   
 ### Domain
 - Our data model
