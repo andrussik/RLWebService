@@ -1,7 +1,5 @@
 # RL web service
 
-<hr>
-
 ## For developers
 
 ### DAL - <em>Data Access Layer</em>

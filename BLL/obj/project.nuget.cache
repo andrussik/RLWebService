@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cszuXIK32dx3M8Q4ti+e2uXJyV6UmLToZkY65VeIz3Lw5vNUrve05c01J+DDvKAmk8z3jLoAPJW8Yf6SrIoHIA==",
+  "success": true,
+  "projectFilePath": "/Users/andre/git/RLTest/RLWebService/BLL/BLL.csproj",
+  "expectedPackageFiles": [
+    "/Users/andre/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

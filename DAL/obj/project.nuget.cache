@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jP69jSb2fZ+zwGuqe8NMni20KL7Y5V/RhKaVizS5sSwaz7oSn7PvUhlduHDjqG4Vqi+yw9AFhPO5k4qzUqD2Uw==",
+  "success": true,
+  "projectFilePath": "/Users/andre/git/RLTest/RLWebService/DAL/DAL.csproj",
+  "expectedPackageFiles": [
+    "/Users/andre/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
