@@ -32,7 +32,6 @@
 * Services make necessary calculations and provide output for:
     * controllers -> client (on data request)
     * repositories -> external sources (on data post).
-
 * Services have scoped lifetime.
 * Services are registered in service collection.
 * To create new service:
