@@ -9,9 +9,9 @@
 
 <hr>
 
-## For developers <a name="for-developers" />
+<h2 name="for-developers">For developers</h2>
 
-### DAL - <em>Data Access Layer</em> <a name="dal" />
+<h3 name="dal">DAL - <em>Data Access Layer</em></h3>
 - This layer should access data from external sources and return it, nothing else!
 - DAL consists of repositories.
 - Repositories have scoped lifetime.
@@ -25,9 +25,8 @@
     - Riks API
     - Urram API
     - Database
-  
-    
-### BLL - <em>Business Logic Layer</em> <a name="bll" />
+
+<h3 name="bll">BLL - <em>Business Logic Layer</em></h3>    
 - This layer should do all the mandatory calculations.
 - BLL consists of BL classes and services.
 - BL classes are static and contain methods that are used across services to make necessary calculations.
@@ -42,10 +41,10 @@
     2. Create repository in App directory.
     3. Register new service in service collection.
   
-### Domain <a name="domain" />
+<h3 name="domain">Domain</h3>
 - Our data model
 
-### Secrets <a name="secrets" />
+<h3 name="secrets">Secrets</h3>
 - Initialize user secrets: dotnet user-secrets init
 - Set a secret: dotnet user-secrets set "ApiKeys:ServiceApiKey" "12345"
 - Remove a secret: dotnet user-secrets remove "ApiKeys:ServiceApiKey"
@@ -53,11 +52,11 @@
 
 Access tokens are stored in IdentityServerClient and updated automatically with token handlers.
 
-### Rules <a name="rules" />
+<h3 name="rules">Rules</h3>
 - Get rid of all the warnings before deploy!
 - Feel free to add any rules ;)
 
-### TODO
+<h3 name="todo">TO-DO</h3>
 - ~~Repository factory~~
 - ~~Service factory~~
 - ~~Injectable repository collection~~
