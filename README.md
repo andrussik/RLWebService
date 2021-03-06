@@ -1,13 +1,12 @@
 # RL web service
 
-[For developers](#for-developers)
-* [DAL](#dal)
-* [BLL](#bll)
-* [Domain](#domain)
-* [Secrets](#secrets)
-* [Rules](#rules)
-
-***
+* [For developers](#for-developers)
+    * [DAL](#dal)
+    * [BLL](#bll)
+    * [Domain](#domain)
+    * [Secrets](#secrets)
+    * [Rules](#rules)
+  
 
 ## <a name="for-developers" /> For developers
 
@@ -45,10 +44,10 @@
 * Our data model
 
 ### <a name="secrets" /> Secrets
-* Initialize user secrets: dotnet user-secrets init
-* Set a secret: dotnet user-secrets set "ApiKeys:ServiceApiKey" "12345"
-* Remove a secret: dotnet user-secrets remove "ApiKeys:ServiceApiKey"
-* List the secrets: dotnet user-secrets list
+* Initialize user secrets: `dotnet user-secrets init`
+* Set a secret: `dotnet user-secrets set "ApiKeys:ServiceApiKey" "12345"`
+* Remove a secret: `dotnet user-secrets remove "ApiKeys:ServiceApiKey"`
+* List the secrets: `dotnet user-secrets list`
 
 Access tokens are stored in IdentityServerClient and updated automatically with token handlers.
 
@@ -61,5 +60,3 @@ Access tokens are stored in IdentityServerClient and updated automatically with 
 * ~~Service factory~~
 * ~~Injectable repository collection~~
 * ~~Injectable storage collection~~
-
-***
