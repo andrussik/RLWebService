@@ -1,6 +1,6 @@
-﻿namespace DTOs.PublicApi
+﻿namespace DTO.PublicApi
 {
-    public class BookDTO
+    public class Book
     {
         public int Id { get; set; }
         public string Title { get; set; } = default!;

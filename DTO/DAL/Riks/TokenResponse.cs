@@ -1,4 +1,4 @@
-namespace DTOs.DAL.Urram
+namespace DTO.DAL.Riks
 {
     public class TokenResponse
     {

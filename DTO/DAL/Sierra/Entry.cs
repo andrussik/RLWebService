@@ -1,4 +1,4 @@
-namespace DTOs.DAL.Sierra
+namespace DTO.DAL.Sierra
 {
     public class Entry
     {

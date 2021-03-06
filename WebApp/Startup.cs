@@ -1,9 +1,15 @@
 using System;
 using System.Net.Http.Headers;
+using BLL.Factory;
 using BLL.Services.App;
 using BLL.Services.Contracts;
+using DAL;
+using DAL.Factory;
+using DAL.Riks.Factory;
+using DAL.Sierra.Factory;
 using DAL.Sierra.Repositories.App;
 using DAL.Sierra.Repositories.Contracts;
+using DAL.Urram.Factory;
 using Handlers.TokenHandlers;
 using IdentityServerClient;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +18,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using IServiceCollection = BLL.Factory.IServiceCollection;
+using ServiceCollection = BLL.Factory.ServiceCollection;
 
 namespace WebApp
 {
@@ -25,17 +33,18 @@ namespace WebApp
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection services)
         {
             services.AddControllers();
             
             services.AddTransient<SierraTokenHandler>();
             services.AddTransient<RiksTokenHandler>();
             services.AddTransient<UrramTokenHandler>();
-            
-            services.AddScoped<IBaseRepository, BaseRepository>();
-            services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<IBookService, BookService>();
+
+            services.AddScoped<ISierraRepositoryCollection, SierraRepositoryCollection>();
+            services.AddScoped<IRiksRepositoryCollection, RiksRepositoryCollection>();
+            services.AddScoped<IUrramRepositoryCollection, UrramRepositoryCollection>();
+            services.AddScoped<IServiceCollection, ServiceCollection>();
             services.AddScoped<IIdentityServerClient, IdentityServerClient.IdentityServerClient>();
             
             services.AddHttpClient("sierra",c =>

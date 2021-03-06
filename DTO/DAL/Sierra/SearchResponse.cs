@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace DTOs.DAL.Sierra
+namespace DTO.DAL.Sierra
 {
-    public class SearchResponseDTO
+    public class SearchResponse
     {
         public int Count { get; set; }
         public int Total { get; set; }

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
-using DTOs.DAL.Sierra;
+using DTO.DAL.Sierra;
 
-namespace DTOs.PublicApi.Mappers
+namespace DTO.PublicApi.Mappers
 {
     public static class BookMapper
     {
-        public static BookDTO Map(Bib bib)
+        public static Book Map(Bib bib)
         {
-            var book = new BookDTO
+            var book = new Book
             {
                 Id = bib.Id,
                 Title = bib.Title,
@@ -18,9 +18,9 @@ namespace DTOs.PublicApi.Mappers
             return book;
         }
 
-        public static IEnumerable<BookDTO> Map(IEnumerable<Bib> bibs)
+        public static IEnumerable<Book> Map(IEnumerable<Bib> bibs)
         {
-            var books = new List<BookDTO>();
+            var books = new List<Book>();
             
             foreach (var bib in bibs)
             {

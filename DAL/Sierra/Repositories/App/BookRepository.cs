@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using DAL.Sierra.Repositories.Contracts;
-using DTOs.DAL.Sierra;
-using DTOs.PublicApi;
-using DTOs.PublicApi.Mappers;
+using DTO.DAL.Sierra;
+using DTO.PublicApi;
+using DTO.PublicApi.Mappers;
 
 namespace DAL.Sierra.Repositories.App
 {
@@ -16,10 +16,10 @@ namespace DAL.Sierra.Repositories.App
         {
         }
         
-        public async Task<IEnumerable<BookDTO>> FindAsync(string searchString)
+        public async Task<IEnumerable<Book>> FindAsync(string searchString)
         {
             var urlString = "bibs/search?text=" + searchString;
-            var searchResponseDTO = await _httpClient.GetFromJsonAsync<SearchResponseDTO>(urlString);
+            var searchResponseDTO = await _httpClient.GetFromJsonAsync<SearchResponse>(urlString);
 
             var bibs = searchResponseDTO?.Entries
                 ?.Where(entry => entry.Bib != null)

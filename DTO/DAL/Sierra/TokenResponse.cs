@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace DTOs.DAL.Sierra
+namespace DTO.DAL.Sierra
 {
     public class TokenResponse
     {

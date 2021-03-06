@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BLL.Factory;
 using BLL.Services.Contracts;
-using DTOs.PublicApi;
+using DTO.PublicApi;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers
@@ -11,17 +12,17 @@ namespace WebApp.Controllers
     [Route("[controller]")]
     public class BookController
     {
-        private readonly IBookService _service;
+        private readonly IServiceCollection _serviceCollection;
 
-        public BookController(IBookService bookService)
+        public BookController(IServiceCollection serviceCollection)
         {
-            _service = bookService;
+            _serviceCollection = serviceCollection;
         }
 
         [HttpGet("{searchString}")]
-        public async Task<IEnumerable<BookDTO>> GetBooks(string searchString)
+        public async Task<IEnumerable<Book>> GetBooks(string searchString)
         {
-            return await _service.FindAsync(searchString);
+            return await _serviceCollection.Books.FindAsync(searchString);
         }
     }
 }

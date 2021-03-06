@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using DTOs.PublicApi;
+using DTO.PublicApi;
 
-namespace BLL.App
+namespace BLL.BL
 {
-    public class BookBLL
+    public class BookBL
     {
-        public static IEnumerable<BookDTO> CalculateBookOutput(IEnumerable<BookDTO> books)
+        public static IEnumerable<Book> CalculateBookOutput(IEnumerable<Book> books)
         {
             var calculateBookOutput = books.ToList();
             foreach (var book in calculateBookOutput)
