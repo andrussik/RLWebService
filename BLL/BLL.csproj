@@ -6,6 +6,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DAL\DAL.csproj" />
+      <ProjectReference Include="..\LuceneSearchEngine\LuceneSearchEngine.csproj" />
+      <ProjectReference Include="..\SearchEngine\SearchEngine.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NEST" Version="7.11.1" />
     </ItemGroup>
 
 </Project>

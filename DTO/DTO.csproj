@@ -5,4 +5,15 @@
         <RootNamespace>DTO</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Azure.Search.Documents" Version="11.2.0" />
+      <PackageReference Include="NEST" Version="7.11.1" />
+      <PackageReference Include="SolrNet" Version="1.0.19" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LuceneExtensions\LuceneExtensions.csproj" />
+      <ProjectReference Include="..\MarcReader\MarcReader.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -4,6 +4,6 @@ namespace DAL.Sierra.Factory
 {
     public interface ISierraRepositoryCollection
     {
-        IBookRepository SierraBooks { get; }
+        IBookRepository Books { get; }
     }
 }

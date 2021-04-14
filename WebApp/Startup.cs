@@ -1,23 +1,26 @@
 using System;
 using System.Net.Http.Headers;
-using BLL.Factory;
-using BLL.Services.App;
-using BLL.Services.Contracts;
-using DAL;
-using DAL.Factory;
+using Azure;
+using Azure.Search.Documents;
+using Azure.Search.Documents.Indexes;
+using DAL.AzureCognitiveSearch.Factory;
+using DAL.Elasticsearch.Factory;
 using DAL.Riks.Factory;
 using DAL.Sierra.Factory;
-using DAL.Sierra.Repositories.App;
-using DAL.Sierra.Repositories.Contracts;
+using DAL.Solr.Factory;
 using DAL.Urram.Factory;
+using DTO.SearchEngine;
 using Handlers.TokenHandlers;
 using IdentityServerClient;
+using LuceneSearchEngine;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Nest;
+using SolrNet;
 using IServiceCollection = BLL.Factory.IServiceCollection;
 using ServiceCollection = BLL.Factory.ServiceCollection;
 
@@ -36,6 +39,25 @@ namespace WebApp
         public void ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection services)
         {
             services.AddControllers();
+
+            var lucene = new LuceneSearchEngineCore();
+            services.AddSingleton(lucene);
+
+            services.AddSingleton<IElasticClient, ElasticClient>();
+            services.AddSolrNet<Publication>("http://localhost:8983/solr/publication_core");
+
+            var searchIndexClient = new SearchIndexClient(
+                new Uri("https://rl-search-service.search.windows.net"),
+                new AzureKeyCredential(Configuration["ApiKeys:RlAzureCognitiveSearchServiceApiKey"])
+            );
+            services.AddSingleton(searchIndexClient);
+
+            var searchClient = new SearchClient(
+                new Uri("https://rl-search-service.search.windows.net"),
+                "publications",
+                new AzureKeyCredential(Configuration["ApiKeys:RlAzureCognitiveSearchServiceApiKey"])
+            );
+            services.AddSingleton(searchClient);
             
             services.AddTransient<SierraTokenHandler>();
             services.AddTransient<RiksTokenHandler>();
@@ -44,6 +66,11 @@ namespace WebApp
             services.AddScoped<ISierraRepositoryCollection, SierraRepositoryCollection>();
             services.AddScoped<IRiksRepositoryCollection, RiksRepositoryCollection>();
             services.AddScoped<IUrramRepositoryCollection, UrramRepositoryCollection>();
+            
+            services.AddScoped<IElasticsearchRepositoryCollection, ElasticsearchRepositoryCollection>();
+            services.AddScoped<ISolrRepositoryCollection, SolrRepositoryCollection>();
+            services.AddScoped<IAzureSearchRepositoryCollection, AzureSearchRepositoryCollection>();
+
             services.AddScoped<IServiceCollection, ServiceCollection>();
             services.AddScoped<IIdentityServerClient, IdentityServerClient.IdentityServerClient>();
             
@@ -81,6 +108,11 @@ namespace WebApp
                 var token = Configuration["ApiKeys:UrramApiKey"];
                 c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("basic", token);
                 // c.BaseAddress = new Uri("");
+            });
+            
+            services.AddHttpClient("solr", c =>
+            {
+                c.BaseAddress = new Uri("http://localhost:8983/solr/");
             });
             
             services.AddCors(options =>

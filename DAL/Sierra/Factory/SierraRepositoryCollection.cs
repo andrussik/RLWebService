@@ -11,7 +11,7 @@ namespace DAL.Sierra.Factory
         {
         }
 
-        public IBookRepository SierraBooks =>
+        public IBookRepository Books =>
             GetRepository(() => new BookRepository(_clientFactory));
     }
 }

@@ -1,10 +1,17 @@
-﻿namespace DTO.PublicApi
+﻿using System.Collections.Generic;
+
+namespace DTO.PublicApi
 {
     public class Book
     {
-        public int Id { get; set; }
-        public string Title { get; set; } = default!;
-        public string Author { get; set; } = default!;
-        public int PublishYear { get; set; }
+        public string Id { get; set; } = default!;
+        public string? Title { get; set; }
+        public string? Author { get; set; }
+        public int? PublishYear { get; set; }
+        
+        public Language? Lang { get; set; }
+        public MaterialType? MaterialType { get; set; }
+        
+        public ICollection<Item>? Items { get; set; }
     }
 }
